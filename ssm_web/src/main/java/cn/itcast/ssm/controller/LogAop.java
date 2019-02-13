@@ -58,7 +58,7 @@ public class LogAop {
     @After("execution(* cn.itcast.ssm.controller.*.*(..))")
     public void doAfter(JoinPoint jp) {
         //获取访问时长
-        Long executionTime = new Date().getTime() - startTime.getTime();
+        Long executionTime = System.currentTimeMillis() - startTime.getTime();
 
         //获取URL
         String url = "";
@@ -96,16 +96,6 @@ public class LogAop {
         sysLogService.save(sysLog);
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }
